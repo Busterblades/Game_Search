@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de juegos</title>
+    <link rel="stylesheet" href="/styles/index.css">
+
+</head>
+<body>
+<div class="header">
+    <h1>Buscador de juegos</h1>
+    <form action="/search" method="get">
+        <input type="text" name="searchTerm" id="searchTerm" placeholder="Ingresa el nobre del juego">
+        <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                 class="bi bi-joystick" viewBox="0 0 16 16">
+                <path
+                        d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
+                <path
+                        d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
+            </svg>
+        </button>
+    </form>
+</div>
+
+<% if (searchTerm){ %>
+    <% if (games.length > 0){ %>
+
+        <div class="game-list">
+            <% games.forEach(game => { %>
+                <div class="game">
+                    <% if (game.image.small_url){ %>
+                        <a href="/game/<%= game.id %>">
+                            <img src="<%= game.image.small_url %>" alt="<%= game.name%>">
+                        </a>
+                    <% } %>
+                    <h2 class="game-name">
+                        <a href="/game/<%= game.id %>">
+                            <%= game.name %>
+                        </a>
+                    </h2>
+                </div>
+            <% }); %>
+        </div>
+
+        <div class="pagination">
+            <% for (let i = 1; i <= totalPages; i++) { %>
+                <a href="/search?searchTerm=<%= searchTerm %>&page=<%= i %>">
+                    <%= i %>
+                </a>
+            <% } %>
+        </div>
+
+
+    <% }else{ %>
+        <p>Lo siento no se han encontrado juegos</p>
+        <img src="/images/404.gif" alt="start">
+    <% } %>
+
+<% }else{ %>
+    <p>¡Ingresa un término de búsqueda para encontrar juegos!</p>
+    <img src="/images/start.gif" alt="Not_found">
+<% } %>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detalles de juegos</title>
+    <link rel="stylesheet" href="/styles/gameDetails.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"/>
+</head>
+<body>
+<% if(gameDetails){ %>
+    <h1><%= gameDetails.name %></h1>
+    <% if(gameDetails.images.length > 0){ %>
+        <div class="carousel">
+            <% gameDetails.images.forEach(image =>{ %>
+                <img src="<%= image.medium_url %>" alt="images">
+            <% }) %>
+        </div>
+    <% } %>
+    <div class="game-details">
+        <p><strong>Descripción:</strong>
+            <%= gameDetails.deck %>
+        </p>
+
+        <p><strong>Plataformas:</strong>
+            <% gameDetails.platforms.forEach(platform => { %>
+                <%= platform.name %>
+            <% }) %>
+        </p>
+
+        </p>
+
+        <p><strong>Géneros:</strong>
+            <% gameDetails.genres.forEach(genre => { %>
+                <%= genre.name %>
+            <% }) %>
+        </p>
+
+        <p><strong>Desarolladores:</strong>
+            <% gameDetails.developers.forEach(developer => { %>
+                <%= developer.name %>
+            <% }) %>
+        </p>
+
+        <a href="javascript:history.back()">Volver</a>
+
+    </div>
+<% }else{ %>
+    <p>No se encontraron detalles del juego</p>
+<% } %>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.carousel').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+    });
+</script>
+
+</body>
+</html>
