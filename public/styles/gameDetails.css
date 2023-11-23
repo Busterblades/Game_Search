@@ -1,0 +1,44 @@
+body{
+    font-family: Arial sans-serif;
+    background-color: #222831;
+    color: #fff;
+    max-width: 1300px;
+    margin: 20px auto;
+}
+
+h1{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: azure;
+    text-align: center;
+}
+
+p strong {
+    font-size: 1.5rem;
+    margin-right: 4px;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+a{
+    color: #9b8ffa;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover{
+    color: #efefe4;
+}
+
+.carousel img{
+    width: 500px;
+    height: 300px;
+    margin: 15px;
+}
+
+game.game-details{
+
+}

@@ -1,0 +1,120 @@
+body{
+    font-family: Arial sans-serif;
+    background-color: #222831;
+}
+
+/*Cabezera*/
+.header{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header h1{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: azure;
+}
+
+.header input{
+    width: 30%;
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    color: #06283D;
+    border: black solid 3px;
+    border-radius: 8px;
+}
+
+.header button{
+    border-radius: 100%;
+    border: black solid 3px;
+    height: 50px;
+    width: 50px;
+}
+
+/*Lista de juegos*/
+.game-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+    max-width: 1200px;
+    grid-gap: 25px;
+}
+
+.game{
+    text-align: center;
+}
+
+.game-name a {
+    text-decoration: none;
+    color: #F9DEC9;
+}
+
+.game img {
+    width: 100%;
+    height: 370px;
+    display: block;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.game img:hover{
+    transform: scale(1.1);
+}
+
+/* Paginacion */
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a{
+    margin: 10px;
+    padding: 15px;
+    border: white solid 2px;
+    font-size: 1.5rem;
+    background-color: #393E46;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.pagination a:hover{
+    background-color: #0F0F0F;
+}
+
+.not-found{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Press Start 2P", cursive;
+    font-size: 2rem;
+    color: azure;
+}
+
+.welcome {
+    display: block;
+    text-align: center;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1.6rem;
+    color: azure;
+}
+
+@media (max-width: 1200px) {
+    .game-list{
+        grid-template-columns: repeat(3,1fr );
+    }
+}
+
+@media (max-width: 990px) {
+    .game-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .game-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
