@@ -3,7 +3,7 @@ import axios from "axios";
 
 const app = express()
 const port = 3000
-const apiKey = "295f34cad2b5ae030f9fee45eccb797a4d9a7f95"
+const apiKey = ""
 
 app.use(express.static("public"))
 app.set("view engine", "ejs")
